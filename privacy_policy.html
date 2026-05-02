@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Sudoku CellMate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F7F5F0;
+      --surface:   #FFFFFF;
+      --accent:    #2E5BE0;
+      --accent-lt: #EDF1FD;
+      --text:      #1A1A2A;
+      --muted:     #6B6B7B;
+      --border:    #E2DED8;
+      --chip-bg:   #F0EDE8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* ── TOP BAR ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 12px rgba(0,0,0,.06);
+    }
+    .app-icon {
+      width: 40px; height: 40px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .app-icon svg { width: 22px; height: 22px; fill: white; }
+    .header-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 400;
+    }
+    .header-text span { font-size: .78rem; color: var(--muted); font-weight: 300; }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .hero h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero p { color: var(--muted); font-size: .95rem; font-weight: 300; }
+    .badge {
+      display: inline-block;
+      background: var(--accent-lt);
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    /* ── KEY POINTS STRIP ── */
+    .key-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 52px;
+    }
+    .kp {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .kp-icon {
+      width: 34px; height: 34px; flex-shrink: 0;
+      background: var(--accent-lt);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .kp-text strong { display: block; font-size: .82rem; font-weight: 600; color: var(--text); }
+    .kp-text span   { font-size: .76rem; color: var(--muted); font-weight: 300; }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .sec-num {
+      background: var(--accent);
+      color: white;
+      font-size: .72rem;
+      font-weight: 600;
+      width: 26px; height: 26px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-header h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .sub-heading {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 22px 0 8px;
+    }
+    p { color: var(--muted); font-size: .92rem; margin-bottom: 12px; font-weight: 300; }
+    p strong { color: var(--text); font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; word-break: break-all; }
+    a:hover { text-decoration: underline; }
+
+    ul {
+      list-style: none;
+      margin: 8px 0 14px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .88rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    ul li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--accent-lt);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .callout p { color: var(--text); margin: 0; font-size: .88rem; font-weight: 400; }
+
+    .warning-callout {
+      background: #FFF8ED;
+      border-left: 4px solid #F59E0B;
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .warning-callout p { color: #92400E; margin: 0; font-size: .88rem; font-weight: 400; }
+
+    /* ── REGION GRID ── */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .region-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .region-card .flag { font-size: 1.4rem; margin-bottom: 6px; }
+    .region-card strong { display: block; font-size: .82rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .region-card span { font-size: .76rem; color: var(--muted); font-weight: 300; line-height: 1.5; }
+
+    /* ── OS STEPS ── */
+    .os-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 12px 0;
+    }
+    @media (max-width: 520px) { .os-steps { grid-template-columns: 1fr; } }
+    .os-card {
+      background: var(--chip-bg);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .os-card .os-label {
+      font-size: .76rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .07em; color: var(--accent); margin-bottom: 10px;
+    }
+    .os-card ol {
+      list-style: decimal;
+      padding-left: 18px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .os-card ol li {
+      font-size: .82rem; color: var(--muted); font-weight: 300;
+    }
+    .os-card ol li::before { display: none; }
+
+    /* ── CONTACT BOX ── */
+    .contact-box {
+      background: var(--text);
+      color: white;
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      margin-top: 8px;
+    }
+    .contact-box h4 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 4px; }
+    .contact-box p { color: rgba(255,255,255,.6); font-size: .82rem; margin: 0; }
+    .contact-btn {
+      background: var(--accent);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: .85rem;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .contact-btn:hover { opacity: .85; text-decoration: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: .8rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    footer strong { color: var(--text); font-weight: 500; }
+
+    @media (max-width: 600px) {
+      header { padding: 14px 20px; }
+      .wrapper { padding: 36px 18px 60px; }
+      .contact-box { text-align: center; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="app-icon">
+    <!-- Simple sudoku grid icon -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="6" height="6" rx="1" opacity=".9"/>
+      <rect x="9" y="2" width="6" height="6" rx="1" opacity=".5"/>
+      <rect x="16" y="2" width="6" height="6" rx="1" opacity=".9"/>
+      <rect x="2" y="9" width="6" height="6" rx="1" opacity=".5"/>
+      <rect x="9" y="9" width="6" height="6" rx="1" opacity=".9"/>
+      <rect x="16" y="9" width="6" height="6" rx="1" opacity=".5"/>
+      <rect x="2" y="16" width="6" height="6" rx="1" opacity=".9"/>
+      <rect x="9" y="16" width="6" height="6" rx="1" opacity=".5"/>
+      <rect x="16" y="16" width="6" height="6" rx="1" opacity=".9"/>
+    </svg>
+  </div>
+  <div class="header-text">
+    <h1>Sudoku – CellMate</h1>
+    <span>Privacy Policy</span>
+  </div>
+</header>
+
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">Privacy Policy</div>
+    <h2>Your Privacy,<br>Fully Respected</h2>
+    <p>Last Updated: <strong id="last-updated"></strong> &nbsp;·&nbsp; Effective immediately</p>
+  </div>
+
+  <!-- KEY POINTS -->
+  <div class="key-points">
+    <div class="kp">
+      <div class="kp-icon">🔒</div>
+      <div class="kp-text">
+        <strong>No Personal Data</strong>
+        <span>We collect nothing from you directly</span>
+      </div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">📱</div>
+      <div class="kp-text">
+        <strong>100% Local Storage</strong>
+        <span>All game data stays on your device</span>
+      </div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">🌍</div>
+      <div class="kp-text">
+        <strong>Global Compliance</strong>
+        <span>GDPR, CCPA, KVKK &amp; more</span>
+      </div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">📢</div>
+      <div class="kp-text">
+        <strong>Ads by AdMob</strong>
+        <span>Only third-party service used</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">1</div>
+      <h3>Overview &amp; Key Principles</h3>
+    </div>
+    <p>Sudoku – CellMate is designed with privacy as a priority. Please read this policy carefully to understand our practices.</p>
+    <div class="callout">
+      <p>✅ We do <strong>not</strong> collect personal information directly. &nbsp;·&nbsp; ✅ All game data is stored <strong>locally on your device</strong>. &nbsp;·&nbsp; ✅ No data is transmitted to our servers — we do not operate any backend servers.</p>
+    </div>
+    <ul>
+      <li>We do NOT collect any personal information directly from you.</li>
+      <li>All game data (progress, scores, settings) is stored locally on your device only.</li>
+      <li>No data is transmitted to our servers.</li>
+      <li>The only third-party service integrated is Google AdMob for advertising.</li>
+    </ul>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">2</div>
+      <h3>Information We Collect</h3>
+    </div>
+
+    <p class="sub-heading">2.1 Information We Do NOT Collect</p>
+    <p>We do not collect, store, or process any of the following:</p>
+    <ul>
+      <li>Your name, email address, or any contact information</li>
+      <li>Account credentials or passwords</li>
+      <li>Payment or financial information</li>
+      <li>Precise GPS location data</li>
+      <li>Photos, contacts, or files from your device</li>
+      <li>Any personally identifiable information (PII)</li>
+    </ul>
+
+    <p class="sub-heading">2.2 Information Collected by Google AdMob (Third Party)</p>
+    <p>The App displays advertisements via Google AdMob. AdMob may automatically collect:</p>
+    <ul>
+      <li>Advertising identifier (IDFA on iOS / GAID on Android)</li>
+      <li>Device type, model, and operating system version</li>
+      <li>General location (country/region, derived from IP address)</li>
+      <li>IP address</li>
+      <li>App interaction data (ad impressions, clicks)</li>
+      <li>Language and time zone settings</li>
+    </ul>
+    <p>This data is collected and processed by Google, not by us. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+
+    <p class="sub-heading">2.3 Local Device Storage</p>
+    <p>The App stores the following data <strong>locally on your device only</strong> — it is never transmitted externally:</p>
+    <ul>
+      <li>Game progress and completed puzzle history</li>
+      <li>Personal best scores and statistics</li>
+      <li>App settings and preferences</li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">3</div>
+      <h3>How Information Is Used</h3>
+    </div>
+    <p>We do not use any personal data because we do not collect any. The only use of data is by Google AdMob for:</p>
+    <ul>
+      <li>Displaying advertisements within the App</li>
+      <li>Serving personalized or contextual ads based on your device's advertising profile</li>
+      <li>Fraud detection and prevention</li>
+      <li>Analytics and reporting for advertisers</li>
+    </ul>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">4</div>
+      <h3>Advertising (Google AdMob)</h3>
+    </div>
+
+    <p class="sub-heading">4.1 Personalized vs. Non-Personalized Ads</p>
+    <p>By default, AdMob may serve personalized advertisements based on your interests and device data. Depending on your region and applicable laws (e.g., GDPR in Europe), you may be presented with a consent prompt on first launch. If you decline, AdMob will serve contextual (non-personalized) ads instead.</p>
+
+    <p class="sub-heading">4.2 Opting Out of Personalized Advertising</p>
+    <p>You can control ad personalization at the device level:</p>
+    <div class="os-steps">
+      <div class="os-card">
+        <div class="os-label">🍎 iOS</div>
+        <ol>
+          <li>Settings → Privacy &amp; Security → Tracking</li>
+          <li>Disable "Allow Apps to Request to Track"</li>
+          <li>Or: Settings → Privacy → Apple Advertising → Disable "Personalized Ads"</li>
+        </ol>
+      </div>
+      <div class="os-card">
+        <div class="os-label">🤖 Android</div>
+        <ol>
+          <li>Settings → Google → Ads</li>
+          <li>Tap "Delete advertising ID"</li>
+          <li>Or enable "Opt out of Ads Personalization"</li>
+        </ol>
+      </div>
+    </div>
+    <div class="warning-callout">
+      <p>⚠️ Opting out of personalization does not remove ads from the App — you will still see ads, but they will not be tailored to your interests.</p>
+    </div>
+
+    <p class="sub-heading">4.3 Remove Ads (Future Feature)</p>
+    <p>We may offer a one-time in-app purchase to remove advertisements in the future. If implemented:</p>
+    <ul>
+      <li>The purchase will be processed through Apple App Store or Google Play Store.</li>
+      <li>We will not directly collect or store your payment information.</li>
+      <li>A local flag on your device will store your purchase status to disable ads.</li>
+      <li>This policy will be updated before any such feature is activated.</li>
+    </ul>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">5</div>
+      <h3>Sharing of Information</h3>
+    </div>
+    <p>We do <strong>not sell, trade, rent, or share</strong> your personal information with any third parties for their own purposes. The only data sharing that occurs is through Google AdMob's standard operation as described in Section 4.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">6</div>
+      <h3>Data Retention</h3>
+    </div>
+    <p>Since we do not collect personal data, there is nothing for us to retain or delete on our end.</p>
+    <ul>
+      <li>Local game data is retained on your device until you uninstall the App or clear its data via device settings.</li>
+      <li>AdMob-collected data is retained according to Google's data retention policies.</li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">7</div>
+      <h3>International Users</h3>
+    </div>
+    <p>Sudoku – CellMate is available worldwide. We comply with applicable regional privacy laws:</p>
+
+    <div class="region-grid">
+      <div class="region-card">
+        <div class="flag">🇪🇺</div>
+        <strong>EEA &amp; United Kingdom</strong>
+        <span>GDPR / UK GDPR — Consent-based processing, SCCs for data transfers, full GDPR rights apply.</span>
+      </div>
+      <div class="region-card">
+        <div class="flag">🇺🇸</div>
+        <strong>United States</strong>
+        <span>CCPA / CPRA — Right to know, delete, opt-out, and non-discrimination for California residents. Similar rights for VA, CO, CT, TX &amp; other states.</span>
+      </div>
+      <div class="region-card">
+        <div class="flag">🇹🇷</div>
+        <strong>Turkey</strong>
+        <span>KVKK (Law No. 6698) — Personal data protection law compliance.</span>
+      </div>
+      <div class="region-card">
+        <div class="flag">🇯🇵</div>
+        <strong>Japan</strong>
+        <span>APPI — Act on the Protection of Personal Information compliance.</span>
+      </div>
+      <div class="region-card">
+        <div class="flag">🇰🇷</div>
+        <strong>South Korea</strong>
+        <span>PIPA — Personal Information Protection Act compliance.</span>
+      </div>
+      <div class="region-card">
+        <div class="flag">🇧🇷</div>
+        <strong>Brazil</strong>
+        <span>LGPD — Lei Geral de Proteção de Dados compliance.</span>
+      </div>
+      <div class="region-card">
+        <div class="flag">🇨🇦</div>
+        <strong>Canada</strong>
+        <span>PIPEDA and applicable provincial privacy laws.</span>
+      </div>
+      <div class="region-card">
+        <div class="flag">🇦🇺</div>
+        <strong>Australia</strong>
+        <span>Privacy Act 1988 compliance.</span>
+      </div>
+    </div>
+    <p>For jurisdiction-specific questions, contact us at <a href="mailto:berkhayta@gmail.com">berkhayta@gmail.com</a>.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">8</div>
+      <h3>Children's Privacy</h3>
+    </div>
+    <p>Sudoku – CellMate is not directed at children under the age of 13 (or under 16 in the EEA/UK). We do not knowingly collect personal information from children.</p>
+    <p>If you are a parent or guardian and believe your child has used the App and data has been inadvertently collected, please contact us at <a href="mailto:berkhayta@gmail.com">berkhayta@gmail.com</a> and we will take appropriate action.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">9</div>
+      <h3>Data Security</h3>
+    </div>
+    <p>Since we do not collect or transmit personal data to our own servers, security risks related to data breaches on our end are minimal. Game data stored locally on your device is protected by your device's built-in security mechanisms (iOS Secure Enclave, Android Keystore).</p>
+    <p>We recommend keeping your device's operating system and the App updated to benefit from the latest security patches.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">10</div>
+      <h3>Third-Party Services &amp; Links</h3>
+    </div>
+    <p>The App integrates Google AdMob and may display ads that link to external websites. We are not responsible for the privacy practices of these third parties.</p>
+    <ul>
+      <li>Google AdMob / Google LLC: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+      <li>Apple App Store: <a href="https://www.apple.com/legal/privacy" target="_blank" rel="noopener">apple.com/legal/privacy</a></li>
+      <li>Google Play Store: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+    </ul>
+  </div>
+
+  <!-- 11 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">11</div>
+      <h3>Your Rights &amp; Choices</h3>
+    </div>
+    <p>Depending on your location, you may have the following rights:</p>
+    <ul>
+      <li><strong>Access &amp; Portability</strong> — Request a copy of data collected about you</li>
+      <li><strong>Rectification</strong> — Request correction of inaccurate data</li>
+      <li><strong>Erasure (Right to Be Forgotten)</strong> — Request deletion of your data</li>
+      <li><strong>Restriction</strong> — Request limited processing of your data</li>
+      <li><strong>Objection</strong> — Object to certain types of processing</li>
+      <li><strong>Withdraw Consent</strong> — Withdraw consent for data processing at any time</li>
+    </ul>
+    <p>Since we do not directly collect personal data, most of these rights apply to data held by Google AdMob. To exercise rights with Google, visit: <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">myaccount.google.com/data-and-privacy</a></p>
+    <p>For other concerns, contact us at <a href="mailto:berkhayta@gmail.com">berkhayta@gmail.com</a>.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">12</div>
+      <h3>Changes to This Privacy Policy</h3>
+    </div>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or new features (such as the "Remove Ads" purchase). When we make significant changes, we will:</p>
+    <ul>
+      <li>Update the "Last Updated" date at the top of this policy</li>
+      <li>Notify you via an in-app notification or prompt on next launch</li>
+    </ul>
+    <p>Your continued use of the App after the effective date constitutes your acceptance of the changes.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sec-num">13</div>
+      <h3>Contact Us</h3>
+    </div>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please reach out:</p>
+    <div class="contact-box">
+      <div>
+        <h4>Sudoku – CellMate</h4>
+        <p>We'll respond within 30 days (45 days for CCPA requests).</p>
+      </div>
+      <a class="contact-btn" href="mailto:berkhayta@gmail.com">berkhayta@gmail.com</a>
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <p><strong>Sudoku – CellMate</strong> &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; <span id="footer-year"></span></p>
+  <p style="margin-top:6px;">Questions? <a href="mailto:berkhayta@gmail.com">berkhayta@gmail.com</a></p>
+</footer>
+
+<script>
+  const d = new Date();
+  const opts = { year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('last-updated').textContent = d.toLocaleDateString('en-US', opts);
+  document.getElementById('footer-year').textContent = d.getFullYear();
+</script>
+</body>
+</html>
