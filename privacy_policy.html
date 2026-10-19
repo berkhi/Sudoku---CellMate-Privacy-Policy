@@ -314,7 +314,7 @@
   <div class="hero">
     <div class="badge">Privacy Policy</div>
     <h2>Your Privacy,<br>Fully Respected</h2>
-    <p>Last Updated: <strong id="last-updated"></strong> &nbsp;·&nbsp; Effective immediately</p>
+    <p>Last Updated: <strong>October 19, 2026</strong> &nbsp;·&nbsp; Effective immediately &nbsp;·&nbsp; <a href="privacy_policy_tr.html" lang="tr">Türkçe</a></p>
   </div>
 
   <!-- KEY POINTS -->
@@ -429,9 +429,13 @@
     </div>
 
     <p class="sub-heading">4.1 Personalized vs. Non-Personalized Ads</p>
-    <p>By default, AdMob may serve personalized advertisements based on your interests and device data. Depending on your region and applicable laws (e.g., GDPR in Europe), you may be presented with a consent prompt on first launch. If you decline, AdMob will serve contextual (non-personalized) ads instead.</p>
+    <p>By default, AdMob may serve personalized advertisements based on your interests and device data. If you are in the European Economic Area, the United Kingdom or Switzerland, the App shows a consent form from Google's User Messaging Platform before any ad is requested. You can consent, decline, or manage your choices per purpose and partner. If you decline, AdMob will serve non-personalized ads instead.</p>
+    <p>You can change or withdraw your choice at any time in the App: <strong>Settings → Privacy options</strong> (shown where the law requires it).</p>
 
-    <p class="sub-heading">4.2 Opting Out of Personalized Advertising</p>
+    <p class="sub-heading">4.2 Apple App Tracking Transparency (iOS)</p>
+    <p>On iOS, after the consent form (where applicable), the App asks for your permission to track you across apps and websites owned by other companies. This permission is used only so AdMob can show more relevant ads. If you choose "Ask App Not to Track", your advertising identifier (IDFA) is not shared and you will still see ads, but they will not be personalized based on cross-app tracking. You can change this at any time in iOS Settings → Privacy &amp; Security → Tracking.</p>
+
+    <p class="sub-heading">4.3 Opting Out of Personalized Advertising</p>
     <p>You can control ad personalization at the device level:</p>
     <div class="os-steps">
       <div class="os-card">
@@ -455,7 +459,7 @@
       <p>⚠️ Opting out of personalization does not remove ads from the App — you will still see ads, but they will not be tailored to your interests.</p>
     </div>
 
-    <p class="sub-heading">4.3 Remove Ads (Future Feature)</p>
+    <p class="sub-heading">4.4 Remove Ads (Future Feature)</p>
     <p>We may offer a one-time in-app purchase to remove advertisements in the future. If implemented:</p>
     <ul>
       <li>The purchase will be processed through Apple App Store or Google Play Store.</li>
@@ -547,6 +551,7 @@
       <h3>Children's Privacy</h3>
     </div>
     <p>Sudoku – CellMate is not directed at children under the age of 13 (or under 16 in the EEA/UK). We do not knowingly collect personal information from children.</p>
+    <p>Ads in the App are limited to content suitable for general audiences (Google's "G" rating), in line with the App's 4+ age rating.</p>
     <p>If you are a parent or guardian and believe your child has used the App and data has been inadvertently collected, please contact us at <a href="mailto:berkhayta@gmail.com">berkhayta@gmail.com</a> and we will take appropriate action.</p>
   </div>
 
@@ -587,7 +592,7 @@
       <li><strong>Erasure (Right to Be Forgotten)</strong> — Request deletion of your data</li>
       <li><strong>Restriction</strong> — Request limited processing of your data</li>
       <li><strong>Objection</strong> — Object to certain types of processing</li>
-      <li><strong>Withdraw Consent</strong> — Withdraw consent for data processing at any time</li>
+      <li><strong>Withdraw Consent</strong> — Withdraw consent for data processing at any time, in the App via Settings → Privacy options</li>
     </ul>
     <p>Since we do not directly collect personal data, most of these rights apply to data held by Google AdMob. To exercise rights with Google, visit: <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">myaccount.google.com/data-and-privacy</a></p>
     <p>For other concerns, contact us at <a href="mailto:berkhayta@gmail.com">berkhayta@gmail.com</a>.</p>
@@ -602,7 +607,8 @@
     <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or new features (such as the "Remove Ads" purchase). When we make significant changes, we will:</p>
     <ul>
       <li>Update the "Last Updated" date at the top of this policy</li>
-      <li>Notify you via an in-app notification or prompt on next launch</li>
+      <li>Describe the changes in the App Store release notes of the version that introduces them</li>
+      <li>Ask for your consent again where the law requires it</li>
     </ul>
     <p>Your continued use of the App after the effective date constitutes your acceptance of the changes.</p>
   </div>
@@ -632,8 +638,6 @@
 
 <script>
   const d = new Date();
-  const opts = { year: 'numeric', month: 'long', day: 'numeric' };
-  document.getElementById('last-updated').textContent = d.toLocaleDateString('en-US', opts);
   document.getElementById('footer-year').textContent = d.getFullYear();
 </script>
 </body>
